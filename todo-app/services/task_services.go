@@ -6,8 +6,8 @@ import (
 	"todo-app/repo"
 )
 
-func GetTasks() ([]task_model.Task, error) {
-	return repo.GetAllTasks()
+func GetTasks(completedFilter *bool) ([]task_model.Task, error) {
+	return repo.GetAllTasks(completedFilter)
 }
 
 func AddTask(task *task_model.Task) error {
@@ -19,4 +19,12 @@ func AddTask(task *task_model.Task) error {
 
 func RemoveTask(id int) error {
 	return repo.DeleteTask(id)
+}
+
+func UpdateTask(task *task_model.Task) (*task_model.Task, error) {
+	return repo.UpdateTask(task)
+}
+
+func SetTaskCompletion(id int, status bool) (*task_model.Task, error) {
+	return repo.SetTaskCompletion(id, status)
 }
