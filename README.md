@@ -103,8 +103,8 @@ All services are containerized using Docker Compose.
 DB_HOST=postgres
 DB_PORT=5432
 DB_USER=postgres
-DB_PASSWORD=yourpassword
-DB_NAME=todo_db
+DB_PASSWORD=
+DB_NAME=TodoDB  
 ```
 
 ---
@@ -177,34 +177,3 @@ go-todo-app/
 └── main.go
 ```
 
----
-
-## 📚 What You'll Learn
-
-- Go REST API development
-- Clean architecture best practices
-- PostgreSQL database integration
-- Docker container orchestration
-- Writing modular, testable code
-
----
-
-## 👨‍🏫 Presentation
-
-Be ready to explain:
-- How controllers, services, and repositories interact
-- How Docker containers are set up
-- How tasks are created, retrieved, updated, and deleted
-- Why clean architecture helps in scalable applications
-
----
-
-## 📄 License
-
-This project is for educational purposes only.
-
----
-
-## ✨ Good Luck!
-
-You got this 🚀 – Build, test, and understand each layer. It's not about perfection; it's about learning and clarity.
