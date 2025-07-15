@@ -2,7 +2,7 @@
 
 This is a simple, containerized **To-Do REST API** built using **Golang** for the backend and **PostgreSQL** as the database, following clean architecture principles.
 
-## 📦 Tech Stack
+##  Tech Stack
 
 - **Go (Golang)** - Backend API
 - **PostgreSQL** - Relational Database
@@ -13,12 +13,12 @@ This is a simple, containerized **To-Do REST API** built using **Golang** for th
 
 ## 🚀 Features
 
-- ✅ Create a new task
-- 📄 Get all tasks (with filter options)
-- ✏️ Update an existing task
-- 🗑️ Delete a task
-- ✔️ Mark tasks as complete/incomplete
-- 🧠 Input validation & error handling
+-  Create a new task
+-  Get all tasks (with filter options)
+-  Update an existing task
+-  Delete a task
+-  Mark tasks as complete/incomplete
+-  Input validation & error handling
 
 ---
 
@@ -43,9 +43,9 @@ This is a simple, containerized **To-Do REST API** built using **Golang** for th
 
 ---
 
-## 🧪 API Endpoints
+##  API Endpoints
 
-### ➕ Create a Task
+###  Create a Task
 ```http
 POST /tasks
 Body (JSON):
@@ -55,14 +55,14 @@ Body (JSON):
 }
 ```
 
-### 📄 Get Tasks (with filter)
+###  Get Tasks (with filter)
 ```http
 GET /tasks
 Query Params:
 - completed=true/false
 ```
 
-### ✏️ Update a Task
+###  Update a Task
 ```http
 PUT /tasks/{id}
 Body (JSON):
@@ -73,7 +73,7 @@ Body (JSON):
 }
 ```
 
-### ✔️ Mark Task as Complete/Incomplete
+###  Mark Task as Complete/Incomplete
 ```http
 PATCH /tasks/{id}/complete
 Body (JSON):
@@ -82,7 +82,7 @@ Body (JSON):
 }
 ```
 
-### 🗑️ Delete a Task
+###  Delete a Task
 ```http
 DELETE /tasks/{id}
 ```
@@ -98,14 +98,6 @@ All services are containerized using Docker Compose.
 - `postgres`: PostgreSQL DB
 - `pgadmin`: Admin dashboard
 
-### 🔑 .env Example
-```env
-DB_HOST=postgres
-DB_PORT=5432
-DB_USER=postgres
-DB_PASSWORD=
-DB_NAME=TodoDB  
-```
 
 ---
 
@@ -128,7 +120,7 @@ docker-compose up --build
 ```
 
 - API: `http://localhost:8080`
-- pgAdmin: `http://localhost:5050`  
+- pgAdmin: `http://localhost:8081`  
   - Login using email and password from `.env`
   - Add server using:
     - Host: `postgres`
@@ -138,13 +130,13 @@ docker-compose up --build
 
 ---
 
-## 🧪 Testing
+##  Testing
 
 Test all endpoints using **Postman** or **cURL**. Examples are provided above for each endpoint.
 
 ---
 
-## 🧠 Task JSON Structure
+##  Task JSON Structure
 
 ```json
 {
