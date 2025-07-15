@@ -13,7 +13,7 @@ import (
 var DB *sqlx.DB
 
 func InitDB() {
-	err := godotenv.Load()
+	err := godotenv.Load(".env")
 	if err != nil {
 		log.Fatal("Error while loading .env file")
 	}
