@@ -1,39 +1,40 @@
-# 📝 To-Do REST API (Go + PostgreSQL + Docker)
+# 📝 To-Do App - REST API with Go, PostgreSQL, and Docker
 
-This is a simple **To-Do List REST API** built using **Go**, **PostgreSQL**, and **Docker**, following a clean architecture approach. It demonstrates full CRUD operations, task completion toggling, and containerized deployment using Docker Compose.
+This is a simple, containerized **To-Do REST API** built using **Golang** for the backend and **PostgreSQL** as the database, following clean architecture principles.
+
+## 📦 Tech Stack
+
+- **Go (Golang)** - Backend API
+- **PostgreSQL** - Relational Database
+- **Docker + Docker Compose** - Containerization
+- **pgAdmin** - PostgreSQL GUI
 
 ---
 
 ## 🚀 Features
 
-- Add a new task
-- Get all tasks (with optional filter by completion)
-- Update a task
-- Delete a task
-- Mark a task as complete/incomplete
-- Clean architecture: Controllers, Services, Repositories
-- PostgreSQL integration
-- Dockerized setup (Go app + PostgreSQL + pgAdmin)
-- Environment variable support with `.env` file
+- ✅ Create a new task
+- 📄 Get all tasks (with filter options)
+- ✏️ Update an existing task
+- 🗑️ Delete a task
+- ✔️ Mark tasks as complete/incomplete
+- 🧠 Input validation & error handling
 
 ---
 
-## 📁 Project Structure
+## 🧱 Architecture Overview (Clean Architecture)
 
-- go-todo-app/
-├── app/
-│   ├── controllers/
-│   ├── services/
-│   ├── repositories/
-│   ├── models/
-│   ├── routes/
-│   └── config/
-├── Dockerfile
-├── docker-compose.yml
-├── go.mod
-├── go.sum
-└── main.go
-
+```
+/app
+│
+├── controllers    # Handles HTTP request/response
+├── services       # Business logic
+├── repositories   # Database interactions (CRUD)
+├── models         # Task structure and types
+├── routes         # API route handlers
+├── config         # Database config & environment setup
+└── main.go        # Entry point
+```
 
 - **Controllers**: Receive HTTP requests, call services, return responses.
 - **Services**: Contain business rules like validation or logic.
@@ -52,9 +53,17 @@ Body (JSON):
   "title": "Learn Go",
   "description": "Finish the Golang tutorial"
 }
+```
+
+### 📄 Get Tasks (with filter)
+```http
 GET /tasks
 Query Params:
 - completed=true/false
+```
+
+### ✏️ Update a Task
+```http
 PUT /tasks/{id}
 Body (JSON):
 {
@@ -62,9 +71,140 @@ Body (JSON):
   "description": "Update the tutorial",
   "completed": true
 }
+```
+
+### ✔️ Mark Task as Complete/Incomplete
+```http
 PATCH /tasks/{id}/complete
 Body (JSON):
 {
   "completed": true
 }
+```
+
+### 🗑️ Delete a Task
+```http
 DELETE /tasks/{id}
+```
+
+---
+
+## 🐳 Docker Setup
+
+All services are containerized using Docker Compose.
+
+### 🔧 docker-compose.yml
+- `go-todo-app`: Go application
+- `postgres`: PostgreSQL DB
+- `pgadmin`: Admin dashboard
+
+### 🔑 .env Example
+```env
+DB_HOST=postgres
+DB_PORT=5432
+DB_USER=postgres
+DB_PASSWORD=yourpassword
+DB_NAME=todo_db
+```
+
+---
+
+## ▶️ Running the App
+
+### Step 1: Clone the repository
+```bash
+git clone https://github.com/your-username/go-todo-app.git
+cd go-todo-app
+```
+
+### Step 2: Create `.env` file
+```bash
+cp .env.example .env
+```
+
+### Step 3: Start the app
+```bash
+docker-compose up --build
+```
+
+- API: `http://localhost:8080`
+- pgAdmin: `http://localhost:5050`  
+  - Login using email and password from `.env`
+  - Add server using:
+    - Host: `postgres`
+    - Port: `5432`
+    - Username: `postgres`
+    - Password: from `.env`
+
+---
+
+## 🧪 Testing
+
+Test all endpoints using **Postman** or **cURL**. Examples are provided above for each endpoint.
+
+---
+
+## 🧠 Task JSON Structure
+
+```json
+{
+  "id": 1,
+  "title": "Learn Go",
+  "description": "Finish the Golang tutorial",
+  "completed": false,
+  "created_at": "timestamp",
+  "updated_at": "timestamp"
+}
+```
+
+---
+
+## 📂 Folder Structure
+
+```
+go-todo-app/
+├── app/
+│   ├── controllers/
+│   ├── services/
+│   ├── repositories/
+│   ├── models/
+│   ├── routes/
+│   └── config/
+├── Dockerfile
+├── docker-compose.yml
+├── go.mod
+├── go.sum
+└── main.go
+```
+
+---
+
+## 📚 What You'll Learn
+
+- Go REST API development
+- Clean architecture best practices
+- PostgreSQL database integration
+- Docker container orchestration
+- Writing modular, testable code
+
+---
+
+## 👨‍🏫 Presentation
+
+Be ready to explain:
+- How controllers, services, and repositories interact
+- How Docker containers are set up
+- How tasks are created, retrieved, updated, and deleted
+- Why clean architecture helps in scalable applications
+
+---
+
+## 📄 License
+
+This project is for educational purposes only.
+
+---
+
+## ✨ Good Luck!
+
+You got this 🚀 – Build, test, and understand each layer. It's not about perfection; it's about learning and clarity.
