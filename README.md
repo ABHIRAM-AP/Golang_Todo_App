@@ -55,3 +55,16 @@ Body (JSON):
 GET /tasks
 Query Params:
 - completed=true/false
+PUT /tasks/{id}
+Body (JSON):
+{
+  "title": "Learn GoLang",
+  "description": "Update the tutorial",
+  "completed": true
+}
+PATCH /tasks/{id}/complete
+Body (JSON):
+{
+  "completed": true
+}
+DELETE /tasks/{id}
