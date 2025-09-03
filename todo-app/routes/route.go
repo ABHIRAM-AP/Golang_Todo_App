@@ -10,7 +10,7 @@ import (
 func SetupRoute() *gin.Engine {
 	route := gin.Default()
 
-	fmt.Println(">>> ROUTES INITIALIZED")
+	fmt.Println(">>> ROUTES INITIALIZED <<<")
 
 	route.GET("/tasks", controllers.GetTasks)
 	route.POST("/tasks", controllers.CreateTask)
